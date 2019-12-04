@@ -15,7 +15,7 @@ import org.junit.Test
 class NameJokeActivityTest{
     @get:Rule
     val activityTestRule = ActivityTestRule(NameJokeActivity::class.java)
-    
+
     @Test
     fun getNamedJokeNoInput() {
         onView(withId(R.id.name_done_button)).perform(ViewActions.click())
