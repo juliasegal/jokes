@@ -1,6 +1,15 @@
 <resources>
-    <string name="app_name">chuckie</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
+    <string name="app_name">Chuck Norris by Julia Segal</string>
+    <string name="title_joke">Joke</string>
+    <string name="title_jokes">Jokes</string>
     <string name="title_notifications">Notifications</string>
+
+    <!--Joke Fragment-->
+    <string name="joke_fragment_title">Click a joke, any joke</string>
+    <string name="joke_image_info">The Laughing Cavalier</string>
+    <string name="joke_fragment_random_button">Random Joke</string>
+    <string name="joke_fragment_named_button">Named JOKE</string>
+
+    <!--Jokes Fragment-->
+    <string name="jokes_fragment_title">Jokey jokes jokes jokes</string>
 </resources>
