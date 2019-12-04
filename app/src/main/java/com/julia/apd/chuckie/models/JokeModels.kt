@@ -17,7 +17,7 @@ data class JokeModel(val id: Int, val joke: String) {
             } else {
                 Html.fromHtml(htmlText)
             }
-            return text.toString()
+            return text.toString().trim()
         }
     }
 }
