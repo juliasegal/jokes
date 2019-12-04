@@ -16,7 +16,7 @@
     <string name="name_hint">Ed Balls</string>
     <string name="name_auto_fill">Ed Balls</string>
     <string name="name_button_done">Get joke</string>
-    <string name="name_error_first_last">Please enter a first and last name.</string>
+    <string name="name_error_first_last">Please enter FIRST and LAST name.</string>
 
     <!--Joke Dialog-->
     <string name="joke_dialog_title">Um...</string>

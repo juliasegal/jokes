@@ -33,7 +33,7 @@ class NameJokeActivity : AppCompatActivity(), JokeDialogCompleteCallback {
         initViewModel()
         name_done_button.setOnClickListener {
             val namesEntry = name_entry.text
-            val names = namesEntry.split(" ")
+            val names = namesEntry.trim().split(" ")
             if (names.size == 2) {
                 nameJokeViewModel.getJoke(names[0], names[1])
             } else {
@@ -78,6 +78,6 @@ class NameJokeActivity : AppCompatActivity(), JokeDialogCompleteCallback {
     }
 
     override fun complete() {
-        finish()
+        //finish()
     }
 }
