@@ -24,4 +24,10 @@ class JokesViewModel(private val chuckNorrisRepository: ChuckNorrisRepository) :
             it.getLiveErrors()
         }
     }
+
+    fun getLoading(): LiveData<Boolean>? {
+        return Transformations.switchMap(jokesSourceFactory?.getDataSourceLiveData()!!) {
+            it.getLiveLoading()
+        }
+    }
 }

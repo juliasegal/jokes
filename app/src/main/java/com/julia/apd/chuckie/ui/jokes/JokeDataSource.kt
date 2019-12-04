@@ -15,9 +15,14 @@ class PaintingsDataSource(
     private val scope: CoroutineScope
 ) : PageKeyedDataSource<Int, JokeModel>() {
     private val errorLiveData = MutableLiveData<String>()
+    private val loadingLiveData = MutableLiveData<Boolean>()
 
     fun getLiveErrors(): LiveData<String> {
         return errorLiveData
+    }
+
+    fun getLiveLoading(): LiveData<Boolean> {
+        return loadingLiveData
     }
 
     override fun loadInitial(

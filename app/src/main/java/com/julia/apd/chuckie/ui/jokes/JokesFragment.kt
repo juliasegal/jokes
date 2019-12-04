@@ -52,6 +52,9 @@ class JokesFragment : Fragment() {
             showLoading(false)
             showError(it)
         })
+        jokesViewModel.getLoading()?.observe(viewLifecycleOwner, Observer {
+            showLoading(it)
+        })
     }
 
     private fun showLoading(show: Boolean = true) {
