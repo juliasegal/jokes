@@ -1,13 +1,27 @@
 package com.julia.apd.chuckie.ui.jokes
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
+import androidx.paging.LivePagedListBuilder
+import androidx.paging.PagedList
+import com.julia.apd.chuckie.dao.ChuckNorrisRepository
+import com.julia.apd.chuckie.models.JokeModel
 
-class JokesViewModel : ViewModel() {
+class JokesViewModel(private val chuckNorrisRepository: ChuckNorrisRepository) : ViewModel() {
+    private var jokesSourceFactory:  PaintingModelSourceFactory? = null
+    var pagedJokes: LiveData<PagedList<JokeModel>>
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is dashboard Fragment"
+    init {
+        jokesSourceFactory = PaintingModelSourceFactory(chuckNorrisRepository, viewModelScope)
+        val config = PagedList.Config.Builder()
+            .setPageSize(PaintingsDataSource.PAGE_SIZE)
+            .setEnablePlaceholders(false)
+            .build()
+        pagedJokes = LivePagedListBuilder(jokesSourceFactory!!, config).build()
     }
-    val text: LiveData<String> = _text
+
+    fun getError(): LiveData<String>? {
+        return Transformations.switchMap(jokesSourceFactory?.getDataSourceLiveData()!!) {
+            it.getLiveErrors()
+        }
+    }
 }

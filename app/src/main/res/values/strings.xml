@@ -14,7 +14,4 @@
     <string name="joke_dialog_title">Um...</string>
     <string name="joke_dialog_button">okey dokey</string>
 
-
-    <!--Jokes Fragment-->
-    <string name="jokes_fragment_title">Jokey jokes jokes jokes</string>
 </resources>
