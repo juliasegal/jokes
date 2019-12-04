@@ -11,8 +11,8 @@
     <string name="joke_fragment_named_button">Named JOKE</string>
 
     <!--Joke Dialog-->
-    <string name="joke_dialog_title">Joke</string>
-    <string name="joke_dialog_button">HA HA</string>
+    <string name="joke_dialog_title">Um...</string>
+    <string name="joke_dialog_button">okey dokey</string>
 
 
     <!--Jokes Fragment-->

@@ -1,5 +1,6 @@
 package com.julia.apd.chuckie.ui.joke
 
+import android.os.Handler
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -10,6 +11,7 @@ import com.julia.apd.chuckie.networking.Resource
 import kotlinx.coroutines.launch
 
 class JokeViewModel(private val chuckNorrisRepository: ChuckNorrisRepository) : ViewModel() {
+    val THREE_SECONDS: Long = 3000
     private val _joke = MutableLiveData<Resource<JokeModel>>()
 
     val joke: LiveData<Resource<JokeModel>> = _joke
@@ -17,7 +19,10 @@ class JokeViewModel(private val chuckNorrisRepository: ChuckNorrisRepository) : 
     fun getJoke() {
         _joke.value = Resource.loading()
         viewModelScope.launch {
-            _joke.value = chuckNorrisRepository.getRandomJoke().value
+            val data = chuckNorrisRepository.getRandomJoke().value
+            // wait 3 seconds...because as specified
+            Handler().postDelayed({ _joke.value = data }, THREE_SECONDS)
+
         }
     }
 }
