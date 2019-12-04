@@ -10,6 +10,7 @@ import com.julia.apd.chuckie.networking.ResponseHandler
 
 interface ChuckNorrisRepository {
     suspend fun getRandomJoke(): LiveData<Resource<JokeModel>>
+    suspend fun getRandomJoke(firstName: String, lastName: String): LiveData<Resource<JokeModel>>
     suspend fun getRandomJokes(numberOfJokes: Int = 12): Resource<List<JokeModel>>
 }
 
@@ -19,6 +20,17 @@ class ChuckNorrisImpl(private val jokeServiceApi: ChuckNorrisApi, private val re
         val jokeData = MutableLiveData<Resource<JokeModel>>()
         try {
             val response = jokeServiceApi.getRandomJoke()
+            jokeData.value = responseHandler.handleSuccess(JokeModel.map(response))
+        } catch (ex: Exception) {
+            jokeData.value = responseHandler.handleException(ex)
+        }
+        return jokeData
+    }
+
+    override suspend fun getRandomJoke(firstName: String, lastName: String): LiveData<Resource<JokeModel>> {
+        val jokeData = MutableLiveData<Resource<JokeModel>>()
+        try {
+            val response = jokeServiceApi.getRandomJoke(firstName, lastName)
             jokeData.value = responseHandler.handleSuccess(JokeModel.map(response))
         } catch (ex: Exception) {
             jokeData.value = responseHandler.handleException(ex)

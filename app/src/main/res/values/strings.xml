@@ -10,6 +10,14 @@
     <string name="joke_fragment_random_button">Random Joke</string>
     <string name="joke_fragment_named_button">Named JOKE</string>
 
+    <!--Joke Name Activity -->
+    <string name="name_title">Name a joke</string>
+    <string name="name_instructions">Enter first name and last name:</string>
+    <string name="name_hint">Ed Balls</string>
+    <string name="name_auto_fill">Ed Balls</string>
+    <string name="name_button_done">Get joke</string>
+    <string name="name_error_first_last">Please enter a first and last name.</string>
+
     <!--Joke Dialog-->
     <string name="joke_dialog_title">Um...</string>
     <string name="joke_dialog_button">okey dokey</string>

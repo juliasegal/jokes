@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer
 import com.google.android.material.snackbar.Snackbar
 import com.julia.apd.chuckie.R
 import com.julia.apd.chuckie.dao.Status
+import com.julia.apd.chuckie.ui.namejoke.NameJokeActivity
 import kotlinx.android.synthetic.main.fragment_joke.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -32,6 +33,7 @@ class JokeFragment : Fragment() {
             jokeViewModel.getJoke()
         }
         named_joke.setOnClickListener {
+            context?.let { startActivity(NameJokeActivity.newInstance(context!!))}
         }
     }
 
@@ -56,14 +58,6 @@ class JokeFragment : Fragment() {
 
     private fun showJoke(joke: String) {
         showLoading(false)
-        AlertDialog.Builder(context)
-            .apply {
-                setTitle(R.string.joke_dialog_title)
-                setMessage(joke)
-                setNegativeButton(R.string.joke_dialog_button) { dlg: DialogInterface, _: Int ->
-                    dlg.dismiss()
-                }
-            }
-            .show()
+        JokeDialog.showJoke(context!!, joke)
     }
 }
