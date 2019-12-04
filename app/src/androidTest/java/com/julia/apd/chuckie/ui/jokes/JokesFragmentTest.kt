@@ -4,7 +4,6 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions
-import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.rule.ActivityTestRule
@@ -44,8 +43,9 @@ class JokesFragmentTest{
         val itemCount = recyclerView.adapter!!.itemCount
         assertEquals(12*2, itemCount)
 
-       // onView(withId(R.id.jokes_list)).perform(RecyclerViewActions.scrollToPosition<JokeViewHolder>(60))
-       // Thread.sleep(2000)
-       // assertEquals(12*3, itemCount)
+        // TODO Scrolling
+        // onView(withId(R.id.jokes_list)).perform(RecyclerViewActions.scrollToPosition<JokeViewHolder>(60))
+        // Thread.sleep(2000)
+        // assertEquals(12*3, itemCount)
     }
 }
