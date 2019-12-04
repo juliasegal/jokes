@@ -4,7 +4,6 @@ import androidx.test.espresso.Espresso
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.matcher.ViewMatchers
-import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.rule.ActivityTestRule
 import com.julia.apd.chuckie.MainActivity
 import com.julia.apd.chuckie.R
@@ -13,7 +12,6 @@ import org.junit.Rule
 import org.junit.Test
 
 class JokeFragmentTest{
-
     @get:Rule
     val activityTestRule = ActivityTestRule(MainActivity::class.java)
 
@@ -36,6 +34,4 @@ class JokeFragmentTest{
         Espresso.onView(ViewMatchers.withId(R.id.name_joke_layout))
             .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
     }
-
-
 }
