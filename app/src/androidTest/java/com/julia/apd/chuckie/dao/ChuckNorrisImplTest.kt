@@ -8,7 +8,6 @@ import com.julia.apd.chuckie.networking.ResponseHandler
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Test
-
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Rule
