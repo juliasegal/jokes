@@ -30,9 +30,11 @@ class PaintingsDataSource(
         callback: LoadInitialCallback<Int, JokeModel>
     ) {
         scope.launch {
+            loadingLiveData.value = true
             val result = chuckNorrisRepository.getRandomJokes(PAGE_SIZE)
             if (result.status == Status.SUCCESS) {
                 callback.onResult(result.data!!, null, FIRST_PAGE + 1)
+                loadingLiveData.value = false
             } else {
                 errorLiveData.value = result.message
             }
@@ -41,10 +43,12 @@ class PaintingsDataSource(
 
     override fun loadBefore(params: LoadParams<Int>, callback: LoadCallback<Int, JokeModel>) {
         scope.launch {
+            loadingLiveData.value = true
             val result = chuckNorrisRepository.getRandomJokes(PAGE_SIZE)
             val key = if (params.key > 1) params.key - 1 else 0
             if (result.status == Status.SUCCESS) {
                 callback.onResult(result.data!!, key)
+                loadingLiveData.value = false
             } else {
                 errorLiveData.value = result.message
             }
@@ -53,9 +57,11 @@ class PaintingsDataSource(
 
     override fun loadAfter(params: LoadParams<Int>, callback: LoadCallback<Int, JokeModel>) {
         scope.launch {
+            loadingLiveData.value = true
             val result = chuckNorrisRepository.getRandomJokes(PAGE_SIZE)
             if (result.status == Status.SUCCESS) {
                 callback.onResult(result.data!!, params.key + 1)
+                loadingLiveData.value = false
             } else {
                 errorLiveData.value = result.message
             }

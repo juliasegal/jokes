@@ -6,8 +6,8 @@ import androidx.paging.PagedList
 import com.julia.apd.chuckie.dao.ChuckNorrisRepository
 import com.julia.apd.chuckie.models.JokeModel
 
-class JokesViewModel(private val chuckNorrisRepository: ChuckNorrisRepository) : ViewModel() {
-    private var jokesSourceFactory:  PaintingModelSourceFactory? = null
+class JokesViewModel(chuckNorrisRepository: ChuckNorrisRepository) : ViewModel() {
+    private var jokesSourceFactory: PaintingModelSourceFactory? = null
     var pagedJokes: LiveData<PagedList<JokeModel>>
 
     init {

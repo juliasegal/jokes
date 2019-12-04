@@ -11,7 +11,12 @@ val chuckNorrisServerModules = module {
     single { HttpClient.createHttpClient() }
     factory { ResponseHandler() }
     single { ChuckNorrisApi.create(okHttpClient = get()) }
-    factory<ChuckNorrisRepository> { ChuckNorrisImpl(jokeServiceApi = get(), responseHandler = get()) }
+    factory<ChuckNorrisRepository> {
+        ChuckNorrisImpl(
+            jokeServiceApi = get(),
+            responseHandler = get()
+        )
+    }
 }
 
 

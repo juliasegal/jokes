@@ -69,7 +69,8 @@ class NameJokeActivity : AppCompatActivity(), JokeDialogCompleteCallback {
     }
 
     private fun hideKeyboard() {
-        val imm: InputMethodManager = this.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        val imm: InputMethodManager =
+            this.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
         var view = this.currentFocus
         if (view == null) {
             view = View(this)

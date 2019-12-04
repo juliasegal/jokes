@@ -33,7 +33,7 @@ class JokeFragment : Fragment() {
             jokeViewModel.getJoke()
         }
         named_joke.setOnClickListener {
-            context?.let { startActivity(NameJokeActivity.newInstance(context!!))}
+            context?.let { startActivity(NameJokeActivity.newInstance(context!!)) }
         }
     }
 

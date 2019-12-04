@@ -14,5 +14,6 @@ data class JokeResponseModel(
 
 data class JokeValueResponseModel(
     @SerializedName("id") val id: Int,
-    @SerializedName("joke") val joke: String)
+    @SerializedName("joke") val joke: String
+)
 

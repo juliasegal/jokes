@@ -8,7 +8,8 @@ import com.julia.apd.chuckie.remote.responsemodels.JokesResponseModel
 
 data class JokeModel(val id: Int, val joke: String) {
     companion object {
-        fun map(response: JokeResponseModel) = JokeModel(response.value.id, fromHtml(response.value.joke))
+        fun map(response: JokeResponseModel) =
+            JokeModel(response.value.id, fromHtml(response.value.joke))
 
         fun fromHtml(htmlText: String): String {
             val text = if (Build.VERSION.SDK_INT >= 24) {
@@ -23,7 +24,8 @@ data class JokeModel(val id: Int, val joke: String) {
 
 data class JokesModel(val jokes: List<JokeModel>) {
     companion object {
-        fun map(response: JokesResponseModel) = response.value.map { JokeModel(it.id, JokeModel.fromHtml(it.joke))
+        fun map(response: JokesResponseModel) = response.value.map {
+            JokeModel(it.id, JokeModel.fromHtml(it.joke))
         }
     }
 }

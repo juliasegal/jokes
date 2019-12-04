@@ -31,7 +31,13 @@ class JokeAdapter(private val context: Context) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): JokeViewHolder {
-        return JokeViewHolder(LayoutInflater.from(context).inflate(R.layout.joke_item,parent,false))
+        return JokeViewHolder(
+            LayoutInflater.from(context).inflate(
+                R.layout.joke_item,
+                parent,
+                false
+            )
+        )
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
@@ -40,10 +46,9 @@ class JokeAdapter(private val context: Context) :
             (holder as JokeViewHolder).bind(paintingModel)
         }
 
-        if (position %2 == 1) {
+        if (position % 2 == 1) {
             holder.itemView.setBackgroundColor(Color.LTGRAY)
-        }
-        else {
+        } else {
             holder.itemView.setBackgroundColor(Color.WHITE)
         }
     }

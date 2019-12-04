@@ -14,7 +14,10 @@ interface ChuckNorrisRepository {
     suspend fun getRandomJokes(numberOfJokes: Int = 12): Resource<List<JokeModel>>
 }
 
-class ChuckNorrisImpl(private val jokeServiceApi: ChuckNorrisApi, private val responseHandler: ResponseHandler) : ChuckNorrisRepository {
+class ChuckNorrisImpl(
+    private val jokeServiceApi: ChuckNorrisApi,
+    private val responseHandler: ResponseHandler
+) : ChuckNorrisRepository {
 
     override suspend fun getRandomJoke(): LiveData<Resource<JokeModel>> {
         val jokeData = MutableLiveData<Resource<JokeModel>>()
@@ -27,7 +30,10 @@ class ChuckNorrisImpl(private val jokeServiceApi: ChuckNorrisApi, private val re
         return jokeData
     }
 
-    override suspend fun getRandomJoke(firstName: String, lastName: String): LiveData<Resource<JokeModel>> {
+    override suspend fun getRandomJoke(
+        firstName: String,
+        lastName: String
+    ): LiveData<Resource<JokeModel>> {
         val jokeData = MutableLiveData<Resource<JokeModel>>()
         try {
             val response = jokeServiceApi.getRandomJoke(firstName, lastName)
