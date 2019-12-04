@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
+import com.julia.apd.chuckie.MainActivity
 import com.julia.apd.chuckie.R
 import kotlinx.android.synthetic.main.fragment_jokes_list.*
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -30,6 +31,7 @@ class JokesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (activity as MainActivity).setActionBarTitle(getString(R.string.jokes_fragment_title))
 
         jokesAdapter = JokeAdapter(context!!)
         jokesLayoutManager = LinearLayoutManager(activity).apply {

@@ -10,6 +10,9 @@
     <string name="joke_fragment_random_button">Random Joke</string>
     <string name="joke_fragment_named_button">Named JOKE</string>
 
+    <!--Jokes Fragment-->
+    <string name="jokes_fragment_title">Chuck Norris Everywhere</string>
+
     <!--Joke Name Activity -->
     <string name="name_title">Name a joke</string>
     <string name="name_instructions">Enter first name and last name:</string>
