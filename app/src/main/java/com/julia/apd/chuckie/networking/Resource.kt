@@ -1,5 +1,7 @@
 package com.julia.apd.chuckie.networking
 
+import com.julia.apd.chuckie.dao.Status
+
 data class Resource<out T>(val status: Status, val data: T?, val message: String?) {
     companion object {
         fun <T> success(data: T?): Resource<T> {

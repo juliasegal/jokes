@@ -1,4 +1,4 @@
-package com.julia.apd.chuckie.networking
+package com.julia.apd.chuckie.dao
 
 enum class Status {
     SUCCESS,

@@ -10,6 +10,11 @@
     <string name="joke_fragment_random_button">Random Joke</string>
     <string name="joke_fragment_named_button">Named JOKE</string>
 
+    <!--Joke Dialog-->
+    <string name="joke_dialog_title">Joke</string>
+    <string name="joke_dialog_button">HA HA</string>
+
+
     <!--Jokes Fragment-->
     <string name="jokes_fragment_title">Jokey jokes jokes jokes</string>
 </resources>
