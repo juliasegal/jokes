@@ -1,9 +1,8 @@
-package com.julia.apd.chuckie.testtools
+package com.julia.apd.chuckie.mocks
 
 import android.app.Application
 import android.content.Context
 import androidx.test.runner.AndroidJUnitRunner
-import com.julia.apd.chuckie.mocks.KoinTestApp
 
 
 class KoinTestRunner: AndroidJUnitRunner() {
