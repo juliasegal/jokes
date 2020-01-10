@@ -37,20 +37,11 @@ class KoinTestApp : Application() {
             viewModel { NameJokeViewModel(chuckNorrisRepository = get()) }
         }
 
-        fun getModuleList(
-            jokeApi: ChuckNorrisApi = FakeJokeApi()
-        ): List<Module> {
+        fun getModuleList(jokeApi: ChuckNorrisApi = FakeJokeApi()): List<Module> {
             return listOf(
                 jokeServiceModule(jokeApi),
                 viewModelModules()
             )
-        }
-
-        fun changeDependencies(jokeApi: ChuckNorrisApi  = FakeJokeApi()) {
-            stopKoin()
-            startKoin {
-                modules(getModuleList(jokeApi))
-            }
         }
     }
 }

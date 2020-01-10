@@ -1,4 +1,4 @@
-package com.flydiem.demo.testtools
+package com.julia.apd.chuckie.testtools
 
 import android.content.Intent
 import androidx.fragment.app.Fragment
@@ -23,9 +23,7 @@ abstract class FragmentTestRule<F: Fragment>: ActivityTestRule<FragmentActivity>
 
     override fun beforeActivityLaunched() {
         super.beforeActivityLaunched()
-        val application = InstrumentationRegistry.getInstrumentation()
-            .targetContext.applicationContext as KoinTestApp
-        //application.injectModule(getModule())
+        InstrumentationRegistry.getInstrumentation().targetContext.applicationContext as KoinTestApp
     }
 
     protected abstract fun createFragment(): F

@@ -20,8 +20,8 @@ import org.mockito.Mockito
 import org.mockito.MockitoAnnotations
 
 class NameJokeViewModelTest{
-    val firstName = "Ed"
-    val lastName = "Balls"
+    private val firstName = "Ed"
+    private val lastName = "Balls"
 
     @Mock
     lateinit var observer: Observer<Resource<JokeModel>>
