@@ -23,6 +23,8 @@ class NameJokeViewModelTest{
     private val firstName = "Ed"
     private val lastName = "Balls"
 
+    private val loading = Resource.loading(null)
+
     @Mock
     lateinit var observer: Observer<Resource<JokeModel>>
 
@@ -50,11 +52,10 @@ class NameJokeViewModelTest{
 
     @Test
     fun getJokesLoading() {
-        val data = Resource.loading(null)
         setUp(false)
         viewModel.joke.observeForever(observer)
         viewModel.getJoke(firstName, lastName)
-        Mockito.verify(observer, Mockito.timeout(5000)).onChanged(data)
+        Mockito.verify(observer, Mockito.timeout(5000)).onChanged(loading)
     }
 
     @Test
@@ -67,13 +68,12 @@ class NameJokeViewModelTest{
         setUp(false)
         viewModel.joke.observeForever(observer)
         viewModel.getJoke(firstName, lastName)
-        Mockito.verify(observer, Mockito.timeout(5000)).onChanged(Mockito.any())
+        Mockito.verify(observer, Mockito.timeout(5000)).onChanged(loading)
         Mockito.verify(observer, Mockito.timeout(5000)).onChanged(data)
     }
 
     @Test
     fun getJokesFail() {
-        val loading = Resource.loading(null)
         val failure = Resource.error("Failure", null)
         setUp(true)
         api.isFail = true

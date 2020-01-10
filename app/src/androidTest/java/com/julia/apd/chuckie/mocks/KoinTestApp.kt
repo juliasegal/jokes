@@ -27,8 +27,9 @@ class KoinTestApp : Application() {
 
     companion object {
 
-        private fun jokeServiceModule(api: ChuckNorrisApi = FakeJokeApi()): Module = module {
-            factory<ChuckNorrisRepository> { ChuckNorrisImpl(api, ResponseHandler()) }
+        private fun mockJokeServiceModule(): Module = module {
+            single { ResponseHandler() }
+            single<ChuckNorrisRepository> { ChuckNorrisImpl(FakeJokeApi(), get()) }
         }
 
         private fun viewModelModules(): Module = module {
@@ -37,9 +38,9 @@ class KoinTestApp : Application() {
             viewModel { NameJokeViewModel(chuckNorrisRepository = get()) }
         }
 
-        fun getModuleList(jokeApi: ChuckNorrisApi = FakeJokeApi()): List<Module> {
+        fun getModuleList(): List<Module> {
             return listOf(
-                jokeServiceModule(jokeApi),
+                mockJokeServiceModule(),
                 viewModelModules()
             )
         }
