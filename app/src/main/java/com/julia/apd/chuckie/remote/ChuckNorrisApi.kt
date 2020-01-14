@@ -1,6 +1,5 @@
 package com.julia.apd.chuckie.remote
 
-import com.julia.apd.chuckie.BuildConfig
 import com.julia.apd.chuckie.remote.responsemodels.JokeResponseModel
 import com.julia.apd.chuckie.remote.responsemodels.JokesResponseModel
 
@@ -18,7 +17,7 @@ interface ChuckNorrisApi {
     suspend fun getRandomJokes(@Path("numberOfJokes") numberOfJokes: Int): JokesResponseModel
 
     companion object {
-        const val url = BuildConfig.CHUCK_URL
+        const val url = "https://api.icndb.com/"
     }
 
 }
